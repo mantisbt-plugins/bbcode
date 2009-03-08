@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 # MantisBT - a php based bugtracking system
 
 # Copyright (C) 2002 - 2008  MantisBT Team   - mantisbt-dev@lists.sourceforge.net

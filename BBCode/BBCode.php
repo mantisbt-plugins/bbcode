@@ -61,7 +61,7 @@ class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
 		$this->description = lang_get( 'plugin_bbcode_description' );
 		$this->page = 'config';
 
-		$this->version = '1.1';
+		$this->version = '1.1a';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);
