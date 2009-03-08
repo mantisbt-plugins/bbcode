@@ -1,1 +1,0 @@
-Mantis BBCode Plugin

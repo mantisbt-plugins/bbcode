@@ -1,0 +1,6 @@
+INSTALL
+
+1. Just unpack (with folder BBCode) in MantisBT_Root_Folder/plugins/
+2. Go /manage_plugin_page.php
+3. Install MantisBT BBCode Plugin
+4. Use it ;)
