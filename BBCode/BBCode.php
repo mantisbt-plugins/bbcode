@@ -1,22 +1,20 @@
 <?php
-# MantisBT - a php based bugtracking system
-# Copyright (C) 2002 - 2009  MantisBT Team   - mantisbt-dev@lists.sourceforge.net
-# MantisBT is free software: you can redistribute it and/or modify
+# Copyright (C) 2009	Kirill Krasnov
+#
+# This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 2 of the License, or
+# the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# MantisBT is distributed in the hope that it will be useful,
+# This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with Mantis.  If not, see <http://www.gnu.org/licenses/>.
+# along with MantisBT.  If not, see <http://www.gnu.org/licenses/>.
 
-//require_once( config_get( 'class_path' ) . 'MantisBBCodePlugin.class.php' );
 require_once( config_get( 'class_path' ) . 'MantisFormattingPlugin.class.php' );
-
 
 function string_process_bbcode( $p_string ) {
 	$t_change_quotes = false;
@@ -24,7 +22,7 @@ function string_process_bbcode( $p_string ) {
 		$t_change_quotes = true;
 		ini_set( 'magic_quotes_sybase', false );
 	}
-	# Find any URL in a string and replace it by a clickable link
+
 	$p_string = preg_replace( '/\[b\](.+)\[\/b\]/is', "<strong>\$1</strong>", $p_string );
 	$p_string = preg_replace( '/\[u\](.+)\[\/u\]/is', "<u>\$1</u>", $p_string );
 	$p_string = preg_replace( '/\[del\](.+)\[\/del\]/is', "<s>\$1</s>", $p_string );
@@ -61,7 +59,7 @@ class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
 		$this->description = lang_get( 'plugin_bbcode_description' );
 		$this->page = 'config';
 
-		$this->version = '1.1a';
+		$this->version = '1.2';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);
@@ -84,7 +82,9 @@ class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
 	 */
 	function config() {
 		return array(
-			'process_bbcode'	=> ON,
+			'process_bbcode_text'	=> ON,
+			'process_bbcode_email'	=> ON,
+			'process_bbcode_rss'	=> ON,
 		);
 	}
 
@@ -98,7 +98,7 @@ class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
 	function text( $p_event, $p_string, $p_multiline = true ) {
 		$t_string = $p_string;
 
-		if( ON == plugin_config_get( 'process_bbcode' ) ) {
+		if( ON == plugin_config_get( 'process_bbcode_text' ) ) {
 			string_process_bbcode( $t_string );
 		}
 
@@ -114,7 +114,7 @@ class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
 	function rss( $p_event, $p_string ) {
 		$t_string = $p_string;
 
-		if( ON == plugin_config_get( 'process_bbcode' ) ) {
+		if( ON == plugin_config_get( 'process_bbcode_rss' ) ) {
 			$t_string = string_process_bbcode( $t_string );
 		}
 
@@ -130,7 +130,7 @@ class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
 	function email( $p_event, $p_string ) {
 		$t_string = $p_string;
 
-		/*if( ON == plugin_config_get( 'process_bbcode' ) ) {
+		/*if( ON == plugin_config_get( 'process_bbcode_email' ) ) {
 			$t_string = string_process_bbcode( $t_string );
 		}*/
 
@@ -146,7 +146,7 @@ class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
 	function bbcode( $p_event, $p_string, $p_multiline = true  ) {
 		$t_string = $p_string;
 
-		if( ON == plugin_config_get( 'process_bbcode' ) ) {
+		if( ON == plugin_config_get( 'process_bbcode_text' ) ) {
 			$t_string = string_process_bbcode( $t_string );
 		}
 

@@ -1,20 +1,18 @@
 <?php
-# MantisBT - a php based bugtracking system
-
-# Copyright (C) 2002 - 2008  MantisBT Team   - mantisbt-dev@lists.sourceforge.net
-
-# MantisBT is free software: you can redistribute it and/or modify
+# Copyright (C) 2009	Kirill Krasnov
+#
+# This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 2 of the License, or
+# the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# MantisBT is distributed in the hope that it will be useful,
+# This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with Mantis.  If not, see <http://www.gnu.org/licenses/>.
+# along with MantisBT.  If not, see <http://www.gnu.org/licenses/>.
 
 $s_plugin_bbcode_title = 'MantisBT BBCode';
 $s_plugin_bbcode_description = 'BBCode processing plugin.';
@@ -22,6 +20,8 @@ $s_plugin_bbcode_description = 'BBCode processing plugin.';
 $s_plugin_bbcode_install_message = 'ВНИМАНИЕ: Устанавливая этот плагин, будет отключен встроенный механизм форматирования Текста и Ссылок.';
 
 $s_plugin_bbcode_config = 'Настройка';
-$s_plugin_bbcode_process_bbcode = 'BBCode';
+$s_plugin_bbcode_process_text = 'Использовать BBCode при выводе в тексте';
+$s_plugin_bbcode_process_rss = 'Использовать BBCode при выводе RSS';
+$s_plugin_bbcode_process_email = 'Использовать BBCode при выводе в почте';
 $s_plugin_bbcode_enabled = 'Вкл';
 $s_plugin_bbcode_disabled = 'Выкл';
