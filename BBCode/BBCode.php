@@ -138,12 +138,13 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	}
 
 	/**
-	 * BBCode text processing.
+	 * Formatted text processing.
 	 * @param string Event name
 	 * @param string Unformatted text
-	 * @return string Formatted text
+	 * @param boolean Multiline text
+	 * @return multi Array with formatted text and multiline parameter
 	 */
-	function bbcode( $p_event, $p_string, $p_multiline = true  ) {
+	function formatted( $p_event, $p_string, $p_multiline = true  ) {
 		$t_string = $p_string;
 
 		if( ON == plugin_config_get( 'process_bbcode_text' ) ) {
