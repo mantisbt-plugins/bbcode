@@ -49,24 +49,24 @@ function string_process_bbcode( $p_string ) {
 }
 
 
-class MantisBBCodePlugin extends MantisCoreBBCodePlugin {
+class BBCodePlugin extends MantisFormattingPlugin {
 
 	/**
 	 *  A method that populates the plugin information and minimum requirements.
 	 */
 	function register() {
-		$this->name = lang_get( 'plugin_bbcode_title' );
-		$this->description = lang_get( 'plugin_bbcode_description' );
-		$this->page = 'config';
+		$this->name 			= lang_get( 'plugin_bbcode_title' );
+		$this->description 		= lang_get( 'plugin_bbcode_description' );
+		$this->page 			= 'config';
 
-		$this->version = '1.2';
-		$this->requires = array(
+		$this->version 			= '1.3';
+		$this->requires 		= array(
 			'MantisCore' => '1.2.0',
 		);
 
-		$this->author = 'Kirill Krasnov';
-		$this->contact = 'krasnovforum@gmail.com';
-		$this->url = 'http://kkrasnov.kanet.ru';
+		$this->author 			= 'Kirill Krasnov';
+		$this->contact 			= 'krasnovforum@gmail.com';
+		$this->url 			= 'http://kkrasnov.kanet.ru';
 	}
 
 	function install() {
