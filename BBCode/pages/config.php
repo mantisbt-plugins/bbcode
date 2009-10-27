@@ -17,7 +17,7 @@
 auth_reauthenticate( );
 access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 
-html_page_top1( lang_get( 'plugin_bbcode_title' ) );
+html_page_top1( plugin_lang_get( 'title' ) );
 html_page_top2( );
 
 print_manage_menu( );
@@ -30,49 +30,49 @@ print_manage_menu( );
 
 <tr>
 	<td class="form-title" colspan="3">
-		<?php echo lang_get( 'plugin_bbcode_title' ) . ': ' . lang_get( 'plugin_bbcode_config' )?>
+		<?php echo plugin_lang_get( 'title' ) . ': ' . plugin_lang_get( 'config' )?>
 	</td>
 </tr>
 
 <tr <?php echo helper_alternate_class( )?>>
 	<td class="category" width="60%">
-		<?php echo lang_get( 'plugin_bbcode_process_text' )?>
+		<?php echo plugin_lang_get( 'process_text' )?>
 	</td>
 	<td class="center" width="20%">
 		<label><input type="radio" name="process_bbcode_text" value="1" <?php echo( ON == plugin_config_get( 'process_bbcode_text' ) ) ? 'checked="checked" ' : ''?>/>
-			<?php echo lang_get( 'plugin_bbcode_enabled' )?></label>
+			<?php echo plugin_lang_get( 'enabled' )?></label>
 	</td>
 	<td class="center" width="20%">
 		<label><input type="radio" name="process_bbcode_text" value="0" <?php echo( OFF == plugin_config_get( 'process_bbcode_text' ) ) ? 'checked="checked" ' : ''?>/>
-			<?php echo lang_get( 'plugin_bbcode_disabled' )?></label>
+			<?php echo plugin_lang_get( 'disabled' )?></label>
 	</td>
 </tr>
 
 <tr <?php echo helper_alternate_class( )?>>
 	<td class="category" width="60%">
-		<?php echo lang_get( 'plugin_bbcode_process_rss' )?>
+		<?php echo plugin_lang_get( 'process_rss' )?>
 	</td>
 	<td class="center" width="20%">
 		<label><input type="radio" name="process_bbcode_rss" value="1" <?php echo( ON == plugin_config_get( 'process_bbcode_rss' ) ) ? 'checked="checked" ' : ''?>/>
-			<?php echo lang_get( 'plugin_bbcode_enabled' )?></label>
+			<?php echo plugin_lang_get( 'enabled' )?></label>
 	</td>
 	<td class="center" width="20%">
 		<label><input type="radio" name="process_bbcode_rss" value="0" <?php echo( OFF == plugin_config_get( 'process_bbcode_rss' ) ) ? 'checked="checked" ' : ''?>/>
-			<?php echo lang_get( 'plugin_bbcode_disabled' )?></label>
+			<?php echo plugin_lang_get( 'disabled' )?></label>
 	</td>
 </tr>
 
 <tr <?php echo helper_alternate_class( )?>>
 	<td class="category" width="60%">
-		<?php echo lang_get( 'plugin_bbcode_process_email' )?>
+		<?php echo plugin_lang_get( 'process_email' )?>
 	</td>
 	<td class="center" width="20%">
 		<label><input type="radio" name="process_bbcode_email" value="1" <?php echo( ON == plugin_config_get( 'process_bbcode_email' ) ) ? 'checked="checked" ' : ''?>/>
-			<?php echo lang_get( 'plugin_bbcode_enabled' )?></label>
+			<?php echo plugin_lang_get( 'enabled' )?></label>
 	</td>
 	<td class="center" width="20%">
 		<label><input type="radio" name="process_bbcode_email" value="0" <?php echo( OFF == plugin_config_get( 'process_bbcode_email' ) ) ? 'checked="checked" ' : ''?>/>
-			<?php echo lang_get( 'plugin_bbcode_disabled' )?></label>
+			<?php echo plugin_lang_get( 'disabled' )?></label>
 	</td>
 </tr>
 
@@ -86,4 +86,4 @@ print_manage_menu( );
 <form>
 
 <?php
-html_page_bottom1( __FILE__ );
+html_page_bottom1( );
