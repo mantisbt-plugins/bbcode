@@ -23,22 +23,22 @@ function string_process_bbcode( $p_string ) {
 		ini_set( 'magic_quotes_sybase', false );
 	}
 
-	$p_string = preg_replace( '/\[b\](.+)\[\/b\]/im', "<strong>\$1</strong>", $p_string );
-	$p_string = preg_replace( '/\[u\](.+)\[\/u\]/im', "<u>\$1</u>", $p_string );
-	$p_string = preg_replace( '/\[del\](.+)\[\/del\]/im', "<s>\$1</s>", $p_string );
-	$p_string = preg_replace( '/\[sub\](.+)\[\/sub\]/im', "<sub>\$1</sub>", $p_string );
-	$p_string = preg_replace( '/\[sup\](.+)\[\/sup\]/im', "<sup>\$1</sup>", $p_string );
-	$p_string = preg_replace( '/\[tt\](.+)\[\/tt\]/im', "<tt>\$1</tt>", $p_string );
-	$p_string = preg_replace( '/\[img\](.+)\[\/img\]/i', "<img src=\"\$1\" />", $p_string );
-	$p_string = preg_replace( '/\[img=(.+)\](.*)\[\/img\]/i', "<img src=\"\$1\" title=\"\$2\" />", $p_string );
-	$p_string = preg_replace( '/\[url\](.+)\[\/url\]/i', "<a href=\"\$1\">\$1</a>", $p_string );
-	$p_string = preg_replace( '/\[url=(.+)\](.*)\[\/url\]/i', "<a href=\"\$1\" title=\"\$2\">\$2</a>", $p_string );
-	$p_string = preg_replace( '/\[i\](.+)\[\/i\]/im', "<i>\$1</i>", $p_string );
-	$p_string = preg_replace( '/\[left\](.+)\[\/left\]/im', "<div align=\"left\">\$1</div>", $p_string );
-	$p_string = preg_replace( '/\[right\](.+)\[\/right\]/im', "<div align=\"right\">\$1</div>", $p_string );
-	$p_string = preg_replace( '/\[center\](.+)\[\/center\]/im', "<center>\$1</center>", $p_string );
-	$p_string = preg_replace( '/\[hr\]/i', "<hr />", $p_string );
-	$p_string = preg_replace( '/\[color=(.+)\](.+)\[\/color\]/im', "<span style=\"color:\$1;\">\$2</span>", $p_string );
+	$p_string = preg_replace( '/\[b\](.+)\[\/b\]/imsU', "<strong>\$1</strong>", $p_string );
+	$p_string = preg_replace( '/\[u\](.+)\[\/u\]/imsU', "<u>\$1</u>", $p_string );
+	$p_string = preg_replace( '/\[del\](.+)\[\/del\]/imsU', "<s>\$1</s>", $p_string );
+	$p_string = preg_replace( '/\[sub\](.+)\[\/sub\]/imsU', "<sub>\$1</sub>", $p_string );
+	$p_string = preg_replace( '/\[sup\](.+)\[\/sup\]/imsU', "<sup>\$1</sup>", $p_string );
+	$p_string = preg_replace( '/\[tt\](.+)\[\/tt\]/imsU', "<tt>\$1</tt>", $p_string );
+	$p_string = preg_replace( '/\[img\](.+)\[\/img\]/iU', "<img src=\"\$1\" />", $p_string );
+	$p_string = preg_replace( '/\[img=(.+)\](.*)\[\/img\]/iU', "<img src=\"\$1\" title=\"\$2\" />", $p_string );
+	$p_string = preg_replace( '/\[url\](.+)\[\/url\]/iU', "<a href=\"\$1\">\$1</a>", $p_string );
+	$p_string = preg_replace( '/\[url=(.+)\](.*)\[\/url\]/imsU', "<a href=\"\$1\" title=\"\$2\">\$2</a>", $p_string );
+	$p_string = preg_replace( '/\[i\](.+)\[\/i\]/imsU', "<i>\$1</i>", $p_string );
+	$p_string = preg_replace( '/\[left\](.+)\[\/left\]/imsU', "<div align=\"left\">\$1</div>", $p_string );
+	$p_string = preg_replace( '/\[right\](.+)\[\/right\]/imsU', "<div align=\"right\">\$1</div>", $p_string );
+	$p_string = preg_replace( '/\[center\](.+)\[\/center\]/imsU', "<center>\$1</center>", $p_string );
+	$p_string = preg_replace( '/\[hr\]/iU', "<hr />", $p_string );
+	$p_string = preg_replace( '/\[color=(.+)\](.+)\[\/color\]/imsU', "<span style=\"color:\$1;\">\$2</span>", $p_string );
 	if( $t_change_quotes ) {
 		ini_set( 'magic_quotes_sybase', true );
 	}
@@ -57,7 +57,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
 		$this->page = 'config';
-		$this->version = '1.3.1';
+		$this->version = '1.3.2';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);
@@ -67,7 +67,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		);
 		$this->author = 'Kirill Krasnov';
 		$this->contact = 'krasnovforum@gmail.com';
-		$this->url = 'http://kkrasnov.kanet.ru';
+		$this->url = 'http://www.kraeg.ru';
 	}
 
 	function install() {
