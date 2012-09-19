@@ -18,10 +18,10 @@ require_once( config_get( 'class_path' ) . 'MantisFormattingPlugin.class.php' );
 
 function string_process_bbcode( $p_string ) {
 	
-	$t_change_quotes = false;
+	$t_change_quotes = FALSE;
 	if( ini_get_bool( 'magic_quotes_sybase' ) ) {
-		$t_change_quotes = true;
-		ini_set( 'magic_quotes_sybase', false );
+		$t_change_quotes = TRUE;
+		ini_set( 'magic_quotes_sybase', FALSE );
 	}
 
 	$p_string = preg_replace( '/\[b\](.+)\[\/b\]/imsU', "<strong>\$1</strong>", $p_string );
@@ -43,7 +43,7 @@ function string_process_bbcode( $p_string ) {
 	$p_string = preg_replace( '/\[code\](.+)\[\/code\]/imsU', "<pre><code>\$1</code></pre>", $p_string );
 	
 	if ( $t_change_quotes )
-		ini_set( 'magic_quotes_sybase', true );
+		ini_set( 'magic_quotes_sybase', TRUE );
 	
 	//	$p_string = preg_replace( '/\b' . email_regex_simple() . '\b/i', '<a href="mailto:\0">\0</a>', $p_string );
 	
@@ -80,7 +80,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	// helper_ensure_confirmed( plugin_lang_get( 'install_message' ), lang_get( 'plugin_install' ) );
 	// config_set( 'plugin_MantisCoreFormatting_process_urls', OFF );
 		
-		return true;
+		return TRUE;
 	}
 	
 	/**
@@ -105,7 +105,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * @param  boolean Multiline text
 	 * @return multi Array with formatted text and multiline paramater
 	 */
-	function text( $p_event, $p_string, $p_multiline = true ) {
+	function text( $p_event, $p_string, $p_multiline = TRUE ) {
 		
 		$t_string = $p_string;
 		
@@ -144,9 +144,9 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		$t_string = $p_string;
 		
 		$t_string = string_strip_hrefs( $t_string );
-		$t_string = string_process_bug_link( $t_string, false );
-		$t_string = string_process_bugnote_link( $t_string, false );
-		$t_string = string_process_cvs_link( $t_string, false );
+		$t_string = string_process_bug_link( $t_string, FALSE );
+		$t_string = string_process_bugnote_link( $t_string, FALSE );
+		$t_string = string_process_cvs_link( $t_string, FALSE );
 		
 		return $t_string;
 	}
@@ -159,13 +159,13 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * @param  boolean Multiline text
 	 * @return multi Array with formatted text and multiline parameter
 	 */
-	function formatted( $p_event, $p_string, $p_multiline = true ) {
+	function formatted( $p_event, $p_string, $p_multiline = TRUE ) {
 		
 		$t_string = $p_string;
 		
 		if ( ON == plugin_config_get( 'process_bbcode_text' ) )
 			$t_string = string_process_bbcode( $t_string );
-
+		
 		return $t_string;
 	}
 	
