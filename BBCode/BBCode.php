@@ -39,6 +39,7 @@ function string_process_bbcode( $p_string ) {
 	$p_string = preg_replace( '/\[center\](.+)\[\/center\]/imsU', "<center>\$1</center>", $p_string );
 	$p_string = preg_replace( '/\[hr\]/iU', "<hr />", $p_string );
 	$p_string = preg_replace( '/\[color=(.+)\](.+)\[\/color\]/imsU', "<span style=\"color:\$1;\">\$2</span>", $p_string );
+	$p_string = preg_replace( '/\[code\](.+)\[\/code\]/imsU', "<pre><code>\$1</code></pre>", $p_string );
 	if( $t_change_quotes ) {
 		ini_set( 'magic_quotes_sybase', true );
 	}
@@ -57,13 +58,13 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
 		$this->page = 'config';
-		$this->version = '1.3.2';
+		$this->version = '1.3.3';
 		$this->requires = array(
 			'MantisCore' => '1.2.0',
 		);
 		$this->uses = array(
 			'MantisCoreFormatting' => '1.0a',
-//			'Highlight' => '0.4.5',
+			'Highlight' => '0.4.7',
 		);
 		$this->author = 'Kirill Krasnov';
 		$this->contact = 'krasnovforum@gmail.com';
