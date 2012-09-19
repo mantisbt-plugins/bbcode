@@ -14,14 +14,14 @@
 # You should have received a copy of the GNU General Public License
 # along with MantisBT.  If not, see <http://www.gnu.org/licenses/>.
 
-$s_plugin_BBCode_title = 'MantisBT BBCode';
-$s_plugin_BBCode_description = 'BBCode processing plugin.';
+$s_plugin_bbcode_title = 'MantisBT BBCode';
+$s_plugin_bbcode_description = 'BBCode processing plugin.';
 
-$s_plugin_BBCode_install_message = 'CAUTION: Installing this plugin will disable the default MantisBT text and URL formatting.';
+$s_plugin_bbcode_install_message = 'CAUTION: Installing this plugin will disable the default MantisBT text and URL formatting.';
 
-$s_plugin_BBCode_config = 'Configuration';
-$s_plugin_BBCode_process_text = 'BBCode Processing Text';
-$s_plugin_BBCode_process_rss = 'BBCode Processing RSS';
-$s_plugin_BBCode_process_email = 'BBCode Processing EMail';
-$s_plugin_BBCode_enabled = 'On';
-$s_plugin_BBCode_disabled = 'Off';
+$s_plugin_bbcode_config = 'Configuration';
+$s_plugin_bbcode_process_text = 'BBCode Processing Text';
+$s_plugin_bbcode_process_rss = 'BBCode Processing RSS';
+$s_plugin_bbcode_process_email = 'BBCode Processing EMail';
+$s_plugin_bbcode_enabled = 'On';
+$s_plugin_bbcode_disabled = 'Off';
