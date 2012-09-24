@@ -78,8 +78,9 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		}
 	
 		$p_string = preg_replace( '/\[b\](.+)\[\/b\]/imsU', "<strong>\$1</strong>", $p_string );
-		$p_string = preg_replace( '/\[u\](.+)\[\/u\]/imsU', "<u>\$1</u>", $p_string );
-		$p_string = preg_replace( '/\[del\](.+)\[\/del\]/imsU', "<s>\$1</s>", $p_string );
+		$p_string = preg_replace( '/\[u\](.+)\[\/u\]/imsU', "<span style=\"text-decoration:underline;\">\$1</span>", $p_string );
+		$p_string = preg_replace( '/\[i\](.+)\[\/i\]/imsU', "<em>\$1</em>", $p_string );
+		$p_string = preg_replace( '/\[del\](.+)\[\/del\]/imsU', "<span style=\"text-decoration:line-through;\">\$1</span>", $p_string );
 		$p_string = preg_replace( '/\[sub\](.+)\[\/sub\]/imsU', "<sub>\$1</sub>", $p_string );
 		$p_string = preg_replace( '/\[sup\](.+)\[\/sup\]/imsU', "<sup>\$1</sup>", $p_string );
 		$p_string = preg_replace( '/\[tt\](.+)\[\/tt\]/imsU', "<tt>\$1</tt>", $p_string );
@@ -87,7 +88,6 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		$p_string = preg_replace( '/\[img=(.+)\](.*)\[\/img\]/iU', "<img src=\"\$1\" title=\"\$2\" />", $p_string );
 		$p_string = preg_replace( '/\[url\](.+)\[\/url\]/iU', "<a href=\"\$1\">\$1</a>", $p_string );
 		$p_string = preg_replace( '/\[url=(.+)\](.*)\[\/url\]/imsU', "<a href=\"\$1\" title=\"\$2\">\$2</a>", $p_string );
-		$p_string = preg_replace( '/\[i\](.+)\[\/i\]/imsU', "<i>\$1</i>", $p_string );
 		$p_string = preg_replace( '/\[left\](.+)\[\/left\]/imsU', "<div align=\"left\">\$1</div>", $p_string );
 		$p_string = preg_replace( '/\[right\](.+)\[\/right\]/imsU', "<div align=\"right\">\$1</div>", $p_string );
 		$p_string = preg_replace( '/\[center\](.+)\[\/center\]/imsU', "<center>\$1</center>", $p_string );
