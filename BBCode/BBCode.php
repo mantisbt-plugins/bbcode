@@ -16,40 +16,6 @@
 
 require_once( config_get( 'class_path' ) . 'MantisFormattingPlugin.class.php' );
 
-function string_process_bbcode( $p_string ) {
-	
-	$t_change_quotes = FALSE;
-	if( ini_get_bool( 'magic_quotes_sybase' ) ) {
-		$t_change_quotes = TRUE;
-		ini_set( 'magic_quotes_sybase', FALSE );
-	}
-
-	$p_string = preg_replace( '/\[b\](.+)\[\/b\]/imsU', "<strong>\$1</strong>", $p_string );
-	$p_string = preg_replace( '/\[u\](.+)\[\/u\]/imsU', "<u>\$1</u>", $p_string );
-	$p_string = preg_replace( '/\[del\](.+)\[\/del\]/imsU', "<s>\$1</s>", $p_string );
-	$p_string = preg_replace( '/\[sub\](.+)\[\/sub\]/imsU', "<sub>\$1</sub>", $p_string );
-	$p_string = preg_replace( '/\[sup\](.+)\[\/sup\]/imsU', "<sup>\$1</sup>", $p_string );
-	$p_string = preg_replace( '/\[tt\](.+)\[\/tt\]/imsU', "<tt>\$1</tt>", $p_string );
-	$p_string = preg_replace( '/\[img\](.+)\[\/img\]/iU', "<img src=\"\$1\" />", $p_string );
-	$p_string = preg_replace( '/\[img=(.+)\](.*)\[\/img\]/iU', "<img src=\"\$1\" title=\"\$2\" />", $p_string );
-	$p_string = preg_replace( '/\[url\](.+)\[\/url\]/iU', "<a href=\"\$1\">\$1</a>", $p_string );
-	$p_string = preg_replace( '/\[url=(.+)\](.*)\[\/url\]/imsU', "<a href=\"\$1\" title=\"\$2\">\$2</a>", $p_string );
-	$p_string = preg_replace( '/\[i\](.+)\[\/i\]/imsU', "<i>\$1</i>", $p_string );
-	$p_string = preg_replace( '/\[left\](.+)\[\/left\]/imsU', "<div align=\"left\">\$1</div>", $p_string );
-	$p_string = preg_replace( '/\[right\](.+)\[\/right\]/imsU', "<div align=\"right\">\$1</div>", $p_string );
-	$p_string = preg_replace( '/\[center\](.+)\[\/center\]/imsU', "<center>\$1</center>", $p_string );
-	$p_string = preg_replace( '/\[hr\]/iU', "<hr />", $p_string );
-	$p_string = preg_replace( '/\[color=(.+)\](.+)\[\/color\]/imsU', "<span style=\"color:\$1;\">\$2</span>", $p_string );
-	$p_string = preg_replace( '/\[code\](.+)\[\/code\]/imsU', "<pre><code>\$1</code></pre>", $p_string );
-	
-	if ( $t_change_quotes )
-		ini_set( 'magic_quotes_sybase', TRUE );
-	
-	//	$p_string = preg_replace( '/\b' . email_regex_simple() . '\b/i', '<a href="mailto:\0">\0</a>', $p_string );
-	
-	return $p_string;
-}
-
 class BBCodePlugin extends MantisFormattingPlugin {
 
 	/**
@@ -57,7 +23,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * 
 	 * @return  void
 	 */
-	function register() {
+	public function register() {
 		
 		$this->name        = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
@@ -75,7 +41,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		$this->url     = 'http://www.kraeg.ru';
 	}
 	
-	function install() {
+	public function install() {
 		
 	// helper_ensure_confirmed( plugin_lang_get( 'install_message' ), lang_get( 'plugin_install' ) );
 	// config_set( 'plugin_MantisCoreFormatting_process_urls', OFF );
@@ -88,13 +54,53 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * 
 	 * @return  array default settings
 	 */
-	function config() {
+	public function config() {
 		
 		return array(
 			'process_bbcode_text'  => ON,
 			'process_bbcode_email' => ON,
 			'process_bbcode_rss'   => ON,
 		);
+	}
+	
+	/**
+	 * Filter string and format with bbcode
+	 * 
+	 * @param   string $p_string
+	 * @return  string $p_string
+	 */
+	public function string_process_bbcode( $p_string ) {
+		
+		$t_change_quotes = FALSE;
+		if ( ini_get_bool( 'magic_quotes_sybase' ) ) {
+			$t_change_quotes = TRUE;
+			ini_set( 'magic_quotes_sybase', FALSE );
+		}
+	
+		$p_string = preg_replace( '/\[b\](.+)\[\/b\]/imsU', "<strong>\$1</strong>", $p_string );
+		$p_string = preg_replace( '/\[u\](.+)\[\/u\]/imsU', "<u>\$1</u>", $p_string );
+		$p_string = preg_replace( '/\[del\](.+)\[\/del\]/imsU', "<s>\$1</s>", $p_string );
+		$p_string = preg_replace( '/\[sub\](.+)\[\/sub\]/imsU', "<sub>\$1</sub>", $p_string );
+		$p_string = preg_replace( '/\[sup\](.+)\[\/sup\]/imsU', "<sup>\$1</sup>", $p_string );
+		$p_string = preg_replace( '/\[tt\](.+)\[\/tt\]/imsU', "<tt>\$1</tt>", $p_string );
+		$p_string = preg_replace( '/\[img\](.+)\[\/img\]/iU', "<img src=\"\$1\" />", $p_string );
+		$p_string = preg_replace( '/\[img=(.+)\](.*)\[\/img\]/iU', "<img src=\"\$1\" title=\"\$2\" />", $p_string );
+		$p_string = preg_replace( '/\[url\](.+)\[\/url\]/iU', "<a href=\"\$1\">\$1</a>", $p_string );
+		$p_string = preg_replace( '/\[url=(.+)\](.*)\[\/url\]/imsU', "<a href=\"\$1\" title=\"\$2\">\$2</a>", $p_string );
+		$p_string = preg_replace( '/\[i\](.+)\[\/i\]/imsU', "<i>\$1</i>", $p_string );
+		$p_string = preg_replace( '/\[left\](.+)\[\/left\]/imsU', "<div align=\"left\">\$1</div>", $p_string );
+		$p_string = preg_replace( '/\[right\](.+)\[\/right\]/imsU', "<div align=\"right\">\$1</div>", $p_string );
+		$p_string = preg_replace( '/\[center\](.+)\[\/center\]/imsU', "<center>\$1</center>", $p_string );
+		$p_string = preg_replace( '/\[hr\]/iU', "<hr />", $p_string );
+		$p_string = preg_replace( '/\[color=(.+)\](.+)\[\/color\]/imsU', "<span style=\"color:\$1;\">\$2</span>", $p_string );
+		$p_string = preg_replace( '/\[code\](.+)\[\/code\]/imsU', "<pre><code>\$1</code></pre>", $p_string );
+		
+		if ( $t_change_quotes )
+			ini_set( 'magic_quotes_sybase', TRUE );
+		
+		//	$p_string = preg_replace( '/\b' . email_regex_simple() . '\b/i', '<a href="mailto:\0">\0</a>', $p_string );
+		
+		return $p_string;
 	}
 	
 	/**
@@ -105,14 +111,12 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * @param  boolean Multiline text
 	 * @return multi Array with formatted text and multiline paramater
 	 */
-	function text( $p_event, $p_string, $p_multiline = TRUE ) {
-		
-		$t_string = $p_string;
+	public function text( $p_event, $p_string, $p_multiline = TRUE ) {
 		
 		if ( ON == plugin_config_get( 'process_bbcode_text' ) )
-			string_process_bbcode( $t_string );
+			$this->string_process_bbcode( $p_string );
 		
-		return $t_string;
+		return $p_string;
 	}
 	
 	/**
@@ -122,14 +126,12 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * @param  string Unformatted text
 	 * @return string Formatted text
 	 */
-	function rss( $p_event, $p_string ) {
-		
-		$t_string = $p_string;
+	public function rss( $p_event, $p_string ) {
 		
 		if ( ON == plugin_config_get( 'process_bbcode_rss' ) )
-			$t_string = string_process_bbcode( $t_string );
+			$p_string = $this->string_process_bbcode( $p_string );
 		
-		return $t_string;
+		return $p_string;
 	}
 
 	/**
@@ -139,16 +141,14 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * @param  string Unformatted text
 	 * @return string Formatted text
 	 */
-	function email( $p_event, $p_string ) {
+	public function email( $p_event, $p_string ) {
 		
-		$t_string = $p_string;
+		$p_string = string_strip_hrefs( $p_string );
+		$p_string = string_process_bug_link( $p_string, FALSE );
+		$p_string = string_process_bugnote_link( $p_string, FALSE );
+		$p_string = string_process_cvs_link( $p_string, FALSE );
 		
-		$t_string = string_strip_hrefs( $t_string );
-		$t_string = string_process_bug_link( $t_string, FALSE );
-		$t_string = string_process_bugnote_link( $t_string, FALSE );
-		$t_string = string_process_cvs_link( $t_string, FALSE );
-		
-		return $t_string;
+		return $p_string;
 	}
 	
 	/**
@@ -159,14 +159,12 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	 * @param  boolean Multiline text
 	 * @return multi Array with formatted text and multiline parameter
 	 */
-	function formatted( $p_event, $p_string, $p_multiline = TRUE ) {
-		
-		$t_string = $p_string;
+	public function formatted( $p_event, $p_string, $p_multiline = TRUE ) {
 		
 		if ( ON == plugin_config_get( 'process_bbcode_text' ) )
-			$t_string = string_process_bbcode( $t_string );
+			$p_string = $this->string_process_bbcode( $p_string );
 		
-		return $t_string;
+		return $p_string;
 	}
 	
-}
+} // end class
