@@ -114,7 +114,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	public function text( $p_event, $p_string, $p_multiline = TRUE ) {
 		
 		if ( ON == plugin_config_get( 'process_bbcode_text' ) )
-			$this->string_process_bbcode( $p_string );
+			$p_string = $this->string_process_bbcode( $p_string );
 		
 		return $p_string;
 	}
