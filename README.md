@@ -9,21 +9,21 @@ For highlighting the source use the Manits plugin [highlightcode](https://github
 
 ### Supported BBCode
 ```
-	[b]      => <strong>
-	[i]      => <i>
-	[u]      => <u>
-	[del]    => <s>
-	[sub]    => <sub>
-	[sup]    => <sup>
-	[tt]     => <tt>
-	[img]    => <img>
-	[url]    => <a href>
-	[left]   => <div align>
-	[right]  => <div align>
-	[center] => <center>
-	[hr]     => <hr>
-	[color]  => <span style>
-	[code]   => <pre><code>
+	[b]           => <strong>
+	[i]           => <em>
+	[u]           => <span style="text-decoration: underline;">
+	[del]         => <span style="text-decoration: line-through;">
+	[sub]         => <sub>
+	[sup]         => <sup>
+	[tt]          => <tt>
+	[img]         => <img>
+	[url]         => <a href>
+	[left]        => <div align="left">
+	[right]       => <div align="right">
+	[center]      => <center>
+	[hr]          => <hr>
+	[color=#333]  => <span style="color: #333;">
+	[code]        => <pre><code>
 ```
 
 ## Installation
