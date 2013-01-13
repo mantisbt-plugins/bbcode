@@ -37,3 +37,4 @@ Supported bbcode:
 	[hr]          => <hr>
 	[color=#333]  => <span style="color: #333;">
 	[code]        => <pre><code>
+	[code=php]    => <pre><code class="php">
