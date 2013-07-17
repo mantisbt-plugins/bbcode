@@ -93,15 +93,23 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		$p_string = preg_replace( '/\[center\](.+)\[\/center\]/imsU', "<center>\$1</center>", $p_string );
 		$p_string = preg_replace( '/\[hr\]/iU', "<hr />", $p_string );
 		$p_string = preg_replace( '/\[color=(.+)\](.+)\[\/color\]/imsU', "<span style=\"color:\$1;\">\$2</span>", $p_string );
-		$p_string = preg_replace( 
-			array( 
-				'/\[code=(\w+)\](.+)\[\/code\]/imsU', 
-				'/\[code\](.+)\[\/code\]/imsU'),
-			array(
-				"<pre><code class=\"\$1\">\$2</code></pre>",
-				"<pre><code>\$1</code></pre>"),
-			$p_string);
-		
+                $p_string = preg_replace_callback('/\[code=(\w+)\](.+)\[\/code\]/imsU',
+                                create_function('$mixed_array',
+                                                'return "<pre><code class=\"" . $mixed_array[1] . 
+                                                        "\">" . 
+                                                        preg_replace( "/<br \/>/",
+                                                                      "",
+                                                                      $mixed_array[2]) . 
+                                                        "</code></pre>";'),
+                                $p_string );
+		$p_string = preg_replace_callback('/\[code\](.+)\[\/code\]/imsU',
+                                create_function('$mixed_array',
+                                                'return "<pre><code>" . 
+                                                        preg_replace( "/<br \/>/",
+                                                                      "",
+                                                                      $mixed_array[1]) . 
+                                                        "</code></pre>";'),
+                                $p_string );
 		if ( $t_change_quotes )
 			ini_set( 'magic_quotes_sybase', TRUE );
 		
