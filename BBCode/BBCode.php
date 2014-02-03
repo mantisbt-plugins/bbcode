@@ -101,6 +101,7 @@ class BBCodePlugin extends MantisFormattingPlugin {
 				"<pre><code class=\"\$1\">\$2</code></pre>",
 				"<pre><code>\$1</code></pre>"),
 			$p_string);
+        $p_string = $this->processQuote($p_string);
 		
 		if ( $t_change_quotes )
 			ini_set( 'magic_quotes_sybase', TRUE );
@@ -173,5 +174,20 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		
 		return $p_string;
 	}
-	
+
+    /**
+     * Process [quote] BB code
+     * @param string $p_string
+     * @return string
+     */
+    public function processQuote($p_string)
+    {
+        $pattern = '#\[quote=([^\]]+)\](.+)\[/quote\]#imsU';
+        $style = 'border: solid #c0c0c0 1px; padding: 0 10px 10px 10px; background-color: #d8d8d8';
+        $replacement = sprintf('<div style="%s"><i>$1 wrote</i><br/><br/>$2</div>', $style);
+        $p_string = preg_replace( $pattern, $replacement, $p_string );
+        return $p_string;
+    }
+
+
 } // end class
