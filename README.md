@@ -9,21 +9,23 @@ For highlighting the source use the MantisBT plugin [highlightcode](https://gith
 
 ### Supported BBCode
 ```
-	[b]           => <strong>
-	[i]           => <em>
-	[u]           => <span style="text-decoration: underline;">
-	[del]         => <span style="text-decoration: line-through;">
-	[sub]         => <sub>
-	[sup]         => <sup>
-	[tt]          => <tt>
-	[img]         => <img>
-	[url]         => <a href>
-	[left]        => <div align="left">
-	[right]       => <div align="right">
-	[center]      => <center>
-	[hr]          => <hr>
-	[color=#333]  => <span style="color: #333;">
-	[code]        => <pre><code>
+	[b]            => <strong>
+	[i]            => <em>
+	[u]            => <span style="text-decoration: underline;">
+	[del]          => <span style="text-decoration: line-through;">
+	[sub]          => <sub>
+	[sup]          => <sup>
+	[tt]           => <tt>
+	[img]          => <img>
+	[url]          => <a href>
+	[left]         => <div align="left">
+	[right]        => <div align="right">
+	[center]       => <center>
+	[hr]           => <hr>
+	[color=#333]   => <span style="color: #333;">
+	[code]         => <pre><code>
+	[quote=foobar] => <div style="border: solid #c0c0c0 1px; padding: 0 10px 10px 10px; background-color: #d8d8d8"><i>foobar wrote</i><br><br>your text</div>
+	[quote]        => <div style="border: solid #c0c0c0 1px; padding: 0 10px 10px 10px; background-color: #d8d8d8"><i>Someone wrote</i><br><br>your text</div>
 ```
 
 ## Installation
