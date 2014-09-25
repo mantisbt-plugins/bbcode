@@ -42,9 +42,12 @@ class BBCodePlugin extends MantisFormattingPlugin {
 	}
 
     function hooks() {
-        return array(
-            'EVENT_LAYOUT_RESOURCES' => 'resources',
-        );
+
+        $hooks = parent::hooks();
+
+        $hooks['EVENT_LAYOUT_RESOURCES'] = 'resources';
+
+        return $hooks;
     }
 
     /**
