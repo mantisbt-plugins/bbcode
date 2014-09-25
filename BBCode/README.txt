@@ -22,19 +22,21 @@ Version see in VERSION.txt
 Installation see in INSTALL.txt
 
 Supported bbcode:
-	[b]           => <strong>
-	[i]           => <em>
-	[u]           => <span style="text-decoration: underline;">
-	[del]         => <span style="text-decoration: line-through;">
-	[sub]         => <sub>
-	[sup]         => <sup>
-	[tt]          => <tt>
-	[img]         => <img>
-	[url]         => <a href>
-	[left]        => <div align="left">
-	[right]       => <div align="right">
-	[center]      => <center>
-	[hr]          => <hr>
-	[color=#333]  => <span style="color: #333;">
-	[code]        => <pre><code>
-	[code=php]    => <pre><code class="php">
+	[b]             => <strong>
+	[i]             => <em>
+	[u]             => <span style="text-decoration: underline;">
+	[del]           => <span style="text-decoration: line-through;">
+	[sub]           => <sub>
+	[sup]           => <sup>
+	[tt]            => <tt>
+	[img]           => <img>
+	[url]           => <a href>
+	[left]          => <div align="left">
+	[right]         => <div align="right">
+	[center]        => <center>
+	[hr]            => <hr>
+	[color=#333]    => <span style="color: #333;">
+	[code]          => <pre><code>
+	[code=php]      => <pre><code class="php">
+	[quote=foobar]  => <div style="bbcode-quote"><i>foobar wrote</i><br><br>your text</div>
+	[quote]         => <div style="bbcode-quote"><i>Someone wrote</i><br><br>your text</div>
