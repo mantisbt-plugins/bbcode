@@ -24,8 +24,8 @@ For highlighting the source use the MantisBT plugin [highlightcode](https://gith
 	[hr]           => <hr>
 	[color=#333]   => <span style="color: #333;">
 	[code]         => <pre><code>
-	[quote=foobar] => <div style="border: solid #c0c0c0 1px; padding: 0 10px 10px 10px; background-color: #d8d8d8"><i>foobar wrote</i><br><br>your text</div>
-	[quote]        => <div style="border: solid #c0c0c0 1px; padding: 0 10px 10px 10px; background-color: #d8d8d8"><i>Someone wrote</i><br><br>your text</div>
+	[quote=foobar] => <div class="bbcode-quote"><i>foobar wrote</i><br><br>your text</div>
+	[quote]        => <div style="bbcode-quote"><i>Someone wrote</i><br><br>your text</div>
 ```
 
 ## Installation

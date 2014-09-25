@@ -38,5 +38,5 @@ Supported bbcode:
 	[color=#333]    => <span style="color: #333;">
 	[code]          => <pre><code>
 	[code=php]      => <pre><code class="php">
-	[quote=foobar]  => <div style="border: solid #c0c0c0 1px; padding: 0 10px 10px 10px; background-color: #d8d8d8"><i>foobar wrote</i><br><br>your text</div>
-	[quote]         => <div style="border: solid #c0c0c0 1px; padding: 0 10px 10px 10px; background-color: #d8d8d8"><i>Someone wrote</i><br><br>your text</div>
+	[quote=foobar]  => <div style="bbcode-quote"><i>foobar wrote</i><br><br>your text</div>
+	[quote]         => <div style="bbcode-quote"><i>Someone wrote</i><br><br>your text</div>
