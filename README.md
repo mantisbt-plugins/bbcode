@@ -4,9 +4,6 @@
 It's help convert some bbcode to html-style.
 For highlighting the source use the MantisBT plugin [highlightcode](https://github.com/mantisbt-plugins/highlightcode)
 
-## Screenshot
-![Screenshot on a mantisbt install](https://raw.github.com/bueltge/bbcode/master/screenshot-1.png)
-
 ### Supported BBCode
 ```
 	[b]            => <strong>
