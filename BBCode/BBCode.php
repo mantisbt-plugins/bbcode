@@ -41,6 +41,12 @@ class BBCodePlugin extends MantisFormattingPlugin {
 		$this->url     = 'http://www.kraeg.ru';
 	}
 
+    function hooks() {
+        return array(
+            'EVENT_LAYOUT_RESOURCES' => 'resources',
+        );
+    }
+
     /**
      * Create the resource link to load the CSS file
      */
